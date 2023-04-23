@@ -1,0 +1,253 @@
+{
+  "id": "d218789b-7fc2-4e9a-a562-a13d6e143b8d",
+  "version": "2.0",
+  "name": "Booking_bot",
+  "url": "https://tickets.rolandgarros.com",
+  "tests": [{
+    "id": "10bcb4ff-63d1-41e1-bef6-c13634f226d1",
+    "name": "booking_bot",
+    "commands": [{
+      "id": "b94b0e11-c005-4ce6-ab72-b4200dc1ea79",
+      "comment": "",
+      "command": "open",
+      "target": "/sign-in",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4c4eec0a-df41-417e-a197-9edfacf65fd7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55f57265-f38b-4c54-85b0-0f4473e611a9",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=login", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//input[@id='login']", "xpath:attributes"],
+        ["xpath=//form[@id='sign-in-form']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8040d4a7-f39f-43e9-a196-6d72eb8232f2",
+      "comment": "",
+      "command": "type",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=login", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//input[@id='login']", "xpath:attributes"],
+        ["xpath=//form[@id='sign-in-form']/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "khael1234"
+    }, {
+      "id": "0008589f-5a06-41a0-9c12-3b45c1b20201",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='sign-in-form']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9224d554-7653-401f-99d9-6caf2095460e",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='sign-in-form']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Azerty123456@"
+    }, {
+      "id": "961d9bf5-3879-4561-9b6a-ca7744d27c41",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit-button",
+      "targets": [
+        ["id=submit-button", "id"],
+        ["css=#submit-button", "css:finder"],
+        ["xpath=//input[@id='submit-button']", "xpath:attributes"],
+        ["xpath=//form[@id='sign-in-form']/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4774e54-fe5d-43ef-9e27-b51926ba968d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card-calendar:nth-child(1) > .button",
+      "targets": [
+        ["css=.card-calendar:nth-child(1) > .button", "css:finder"],
+        ["xpath=//a[contains(text(),'Book now')]", "xpath:link"],
+        ["xpath=//section[@id='calendar-section']/div/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://tickets.rolandgarros.com/en/ticket/calendrier')]", "xpath:href"],
+        ["xpath=//div/div/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "54d906ce-fc89-4252-aacb-c72c978fa1d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.\\32 023-06-05:nth-child(2) > .txt-date",
+      "targets": [
+        ["css=.\\32 023-06-05:nth-child(2) > .txt-date", "css:finder"],
+        ["xpath=//div[@id='__layout']/div/div/div/div/div[2]/div[2]/div/div[6]/div[2]/a[2]/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div[2]/a[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "32fb6ac9-2c01-4c9d-8476-d0983f46d675",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=TUE 6 JUNE",
+      "targets": [
+        ["linkText=TUE 6 JUNE", "linkText"],
+        ["css=.\\32 023-06-06:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='__layout']/div/div/div/div/div[2]/div[2]/div/div[7]/div[2]/a", "xpath:idRelative"],
+        ["xpath=//div[7]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'TUE 6 JUNE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "37da59af-99a7-4654-bdf3-8f53abff3a83",
+      "comment": "",
+      "command": "click",
+      "target": "css=.\\32 023-06-05:nth-child(2) > .txt-date",
+      "targets": [
+        ["css=.\\32 023-06-05:nth-child(2) > .txt-date", "css:finder"],
+        ["xpath=//div[@id='__layout']/div/div/div/div/div[2]/div[2]/div/div[6]/div[2]/a[2]/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div[2]/a[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "edec1a88-d5d4-48dc-929e-d8882441a5e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.collection-item-2:nth-child(1) .bt-main",
+      "targets": [
+        ["css=.collection-item-2:nth-child(1) .bt-main", "css:finder"],
+        ["xpath=//div[@id='offers-container']/div/div/div/div/div[2]/div[2]/a", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/div/div[2]/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd01832e-041d-4b8d-b035-1238f0b0f9f2",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0edeb08-0374-4bfd-bd1d-df0c7bd5669c",
+      "comment": "",
+      "command": "click",
+      "target": "id=category-btn_74",
+      "targets": [
+        ["id=category-btn_74", "id"],
+        ["css=#category-btn_74", "css:finder"],
+        ["xpath=//div[@id='category-btn_74']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/div/div/div[2]/div[2]/div/div/div/div[2]/div[2]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div[2]/div[2]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2245e92-e0db-475a-ab98-fd357cc8dec3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.increment",
+      "targets": [
+        ["css=.increment", "css:finder"],
+        ["xpath=//div[@id='add-quantity-panel']/div/div/div/div/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e180aee8-da7f-4783-b80f-42f194f54507",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add-to-cart",
+      "targets": [
+        ["css=.add-to-cart", "css:finder"],
+        ["xpath=//div[@id='add-quantity-panel']/div/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ffb6403-5c93-4bb7-877e-203a1b450631",
+      "comment": "",
+      "command": "click",
+      "target": "id=next-step-bottom",
+      "targets": [
+        ["id=next-step-bottom", "id"],
+        ["css=#next-step-bottom", "css:finder"],
+        ["xpath=(//a[contains(text(),'Confirm my order')])[2]", "xpath:link"],
+        ["xpath=//a[@id='next-step-bottom']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/div/div/div[2]/div/div[2]/div/div[3]/div/a[2]", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/en/ticket/services-add')])[3]", "xpath:href"],
+        ["xpath=//div/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b61b25e2-3b81-4472-91da-986049014071",
+      "comment": "",
+      "command": "click",
+      "target": "id=skip-btn",
+      "targets": [
+        ["id=skip-btn", "id"],
+        ["name=recapitulatif-commande", "name"],
+        ["css=#skip-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Skip this step')]", "xpath:link"],
+        ["xpath=//a[@id='skip-btn']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/div/div/div[2]/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/en/ticket/recapitulatif-commande')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "61479abd-8de3-49ca-9c66-d54f2903c453",
+      "comment": "",
+      "command": "click",
+      "target": "name=paiement",
+      "targets": [
+        ["name=paiement", "name"],
+        ["css=.next-step-btn:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Pay my order')]", "xpath:link"],
+        ["xpath=//a[@name='paiement']", "xpath:attributes"],
+        ["xpath=//div[@id='__layout']/div/div/div/div/div[2]/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/en/ticket/paiement')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "a008eb62-7025-4bd1-b9f9-2422cc0c332d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["10bcb4ff-63d1-41e1-bef6-c13634f226d1"]
+  }],
+  "urls": ["https://tickets.rolandgarros.com/"],
+  "plugins": []
+}
