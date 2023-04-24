@@ -9,6 +9,7 @@ import speech_recognition as sr
 import scipy.io.wavfile as wavfile
 import base64
 import wave
+import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
@@ -38,7 +39,16 @@ MP3_OUTPUT_FILENAME = "audio.mp3"
 
 class TestUntitled():
   def setup_method(self):
-    self.driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    #options.add_argument('--headless')
+    #options.add_argument('--disable-gpu')
+    #options.add_argument('--no-sandbox')
+    # options.add_argument('--incognito')
+    
+    self.driver = webdriver.Chrome(chrome_options=options)
+    #self.driver = webdriver.Chrome()
     self.vars = {}
   
   def teardown_method(self):
@@ -112,25 +122,43 @@ class TestUntitled():
     r = sr.Recognizer()
     with sr.AudioFile(WAVE_OUTPUT_FILENAME) as source:
         audio_data = r.record(source)
-        text = r.recognize_google(audio_data)
-        print(text)
+        audio_text = r.recognize_google(audio_data, language='fr-FR')
+        print(audio_text)
 
     # Delete the temporary WAV and MP3 files
     #os.remove(WAVE_OUTPUT_FILENAME)
     #os.remove(MP3_OUTPUT_FILENAME)
     
-    # 7 | type | css=.audio-captcha-inputs:nth-child(1) | 1
-    self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(1)").send_keys("1")
-    # 8 | type | css=.audio-captcha-inputs:nth-child(2) | 8
-    self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(2)").send_keys("8")
-    # 9 | type | css=.audio-captcha-inputs:nth-child(3) | 7
-    self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(3)").send_keys("7")
-    # 10 | type | css=.audio-captcha-inputs:nth-child(4) | 0
-    self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(4)").send_keys("0")
-    # 11 | type | css=.audio-captcha-inputs:nth-child(5) | 8
-    self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(5)").send_keys("8")
-    # 12 | type | css=.audio-captcha-inputs:nth-child(6) | 2
-    self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(6)").send_keys("2")
+    # print the transcribed text
+    # extract last 6 words
+    words = audio_text.split()[-6:]
+
+    # print the extracted words
+    print("Extracted Words: ", words)
+    
+    if words != None:
+        # 7 | type | css=.audio-captcha-inputs:nth-child(1) | 1
+        self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(1)").send_keys(words[0])
+        
+        time.sleep(1)
+        # 8 | type | css=.audio-captcha-inputs:nth-child(2) | 8
+        self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(2)").send_keys(words[1])
+        time.sleep(1)
+        # 9 | type | css=.audio-captcha-inputs:nth-child(3) | 7
+        self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(3)").send_keys(words[2])
+        time.sleep(1)
+        # 10 | type | css=.audio-captcha-inputs:nth-child(4) | 0
+        self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(4)").send_keys(words[3])
+        time.sleep(1)
+        # 11 | type | css=.audio-captcha-inputs:nth-child(5) | 8
+        self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(5)").send_keys(words[4])
+        time.sleep(1)
+        # 12 | type | css=.audio-captcha-inputs:nth-child(6) | 2
+        self.driver.find_element(By.CSS_SELECTOR, ".audio-captcha-inputs:nth-child(6)").send_keys(words[5])
+  
+  
+    time.sleep(20)
+  
   
 # Load CSV file and run Selenium script for each row
 if __name__ == '__main__':
