@@ -10,6 +10,7 @@ import scipy.io.wavfile as wavfile
 import base64
 import wave
 import re
+from selenium_stealth import stealth
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
@@ -17,6 +18,8 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.common.action_chains import ActionChains
+import undetected_chromedriver as uc
 
 
 import pyaudio
@@ -39,15 +42,43 @@ MP3_OUTPUT_FILENAME = "audio.mp3"
 
 class TestUntitled():
   def setup_method(self):
-    options = webdriver.ChromeOptions()
+    options = uc.ChromeOptions()
     options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
-    options.add_argument('--disable-blink-features=AutomationControlled')
+    #options.add_argument('--disable-blink-features=AutomationControlled')
+    #options.add_argument("start-maximized")
+    #options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    #options.add_experimental_option('useAutomationExtension', False)
+    options.add_argument('--blink-settings=imagesEnabled=false')
+    chromedriver_path = "‪C:\\Users\\mac\\Desktop\\booking-bot-project\\chrome\\chromedriver.exe"
+    
+    self.driver = uc.Chrome(executable_path=chromedriver_path, chrome_options=options)
+    
+    #stealth(self.driver,
+    #    languages=["fr-FR", "fr"],
+    #    vendor="Google Inc.",
+    #    platform="Win32",
+    #    webgl_vendor="Intel Inc.",
+    #    renderer="Intel Iris OpenGL Engine",
+    #    fix_hairline=True,
+    #    )
+        
     #options.add_argument('--headless')
+    #cookie = {
+    #    'name': 'datadome',
+    #    'value': '4WGadCvC-G~sHazA-3K5OzDGYDHNDuUMo_XkDWwscvhmshDiA0-1CI~VunQY7Fa59-hCd-j3OtDHtCcrpEz3wM6wdrnc5vheVAKzpy9kbx3w6wp6oFFNScv34RHSsjDk',
+    #    'domain': ".rolandgarros.com",
+    #    'path': '/',
+    #    'samesite':"Lax",
+    #    'secure': 'true'
+    #}
+    
+    
     #options.add_argument('--disable-gpu')
     #options.add_argument('--no-sandbox')
-    # options.add_argument('--incognito')
+    options.add_argument('--incognito')
     
-    self.driver = webdriver.Chrome(chrome_options=options)
+    
+    #self.driver.add_cookie(cookie)
     #self.driver = webdriver.Chrome()
     self.vars = {}
   
@@ -59,8 +90,10 @@ class TestUntitled():
     # Step # | name | target | value
     # 1 | open | https://tickets.rolandgarros.com/sign-in | 
     self.driver.get("https://tickets.rolandgarros.com/sign-in")
-    # 2 | setWindowSize | 1034x566 | 
+    
+        # 2 | setWindowSize | 1034x566 | 
     self.driver.set_window_size(1034, 566)
+    
     # 3 | selectFrame | index=0 | 
     self.driver.switch_to.frame(0)
     # 4 | click | id=captcha__audio__button | 
